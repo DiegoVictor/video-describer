@@ -13,9 +13,11 @@
     "eslint": "^8.49.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "prisma": "^5.2.0",
     "tsx": "^3.12.9",
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "@prisma/client": "^5.2.0",
   }
 }
