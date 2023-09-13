@@ -2,6 +2,9 @@
   "name": "upload-ai",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "dev:server": "tsx watch src/server.ts"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.6.0",
