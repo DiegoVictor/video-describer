@@ -54,9 +54,9 @@ export async function transcriptions(app: FastifyInstance) {
       })
       .parse(request.params);
 
-    const { template, temperature } = z
+    const { prompt, temperature } = z
       .object({
-        template: z.string(),
+        prompt: z.string(),
         temperature: z.number().min(0).max(1).default(0.5),
       })
       .parse(request.body);
@@ -73,7 +73,7 @@ export async function transcriptions(app: FastifyInstance) {
       });
     }
 
-    const message = template.replace('{transcription}', transcription);
+    const message = prompt.replace('{transcription}', transcription);
 
     const response = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
