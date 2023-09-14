@@ -5,6 +5,9 @@
   "scripts": {
     "dev:server": "tsx watch src/server.ts"
   },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.6.0",
