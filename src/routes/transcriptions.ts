@@ -47,7 +47,7 @@ export async function transcriptions(app: FastifyInstance) {
     return transcription;
   });
 
-  app.post('/videos/:id/summarize', async (request, reply) => {
+  app.post('/videos/:id/generate', async (request, reply) => {
     const { id } = z
       .object({
         id: z.string().uuid(),
