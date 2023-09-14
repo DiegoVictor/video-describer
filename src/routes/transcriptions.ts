@@ -46,4 +46,45 @@ export async function transcriptions(app: FastifyInstance) {
     return transcription;
   });
 
+  app.post('/videos/:id/summarize', async (request, reply) => {
+    const { id } = z
+      .object({
+        id: z.string().uuid(),
+      })
+      .parse(request.params);
+
+    const { template, temperature } = z
+      .object({
+        template: z.string(),
+        temperature: z.number().min(0).max(1).default(0.5),
+      })
+      .parse(request.body);
+
+    const { transcription } = await prisma.video.findUniqueOrThrow({
+      where: {
+        id,
+      },
+    });
+
+    if (!transcription) {
+      return reply.status(400).send({
+        error: 'Transcription not generated yet',
+      });
+    }
+
+    const message = template.replace('{transcription}', transcription);
+
+    const response = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo',
+      temperature,
+      messages: [
+        {
+          role: 'user',
+          content: message,
+        },
+      ],
+    });
+
+    return response;
+  });
 }
