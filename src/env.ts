@@ -5,12 +5,11 @@ const schema = z.object({
   DATABASE_URL: z.string({
     required_error: 'Missing DATABASE_URL in environment variable',
   }),
-  DATABASE_CLIENT: z.enum(['sqlite']),
   PORT: z.coerce
     .number({
       invalid_type_error: 'PORT must be a number',
     })
-    .default(3000),
+    .default(3333),
   NODE_ENV: z
     .enum(['dev', 'test'], {
       invalid_type_error:
@@ -21,6 +20,7 @@ const schema = z.object({
   OPENAI_API_KEY: z.string({
     required_error: 'Missing Open AI API Key',
   }),
+  HOST: z.string().default('localhost'),
 });
 
 export const env = schema.parse(process.env);
