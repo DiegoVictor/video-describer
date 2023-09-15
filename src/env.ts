@@ -18,7 +18,7 @@ const schema = z.object({
       required_error: 'Missing NODE_ENV in environment variables',
     })
     .default('dev'),
-  OPENAI_KEY: z.string({
+  OPENAI_API_KEY: z.string({
     required_error: 'Missing Open AI API Key',
   }),
 });
