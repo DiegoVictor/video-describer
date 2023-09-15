@@ -1,7 +1,6 @@
 {
-  "name": "upload-ai",
+  "name": "video-describer-ai",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
     "dev:server": "tsx watch src/server.ts"
   },
