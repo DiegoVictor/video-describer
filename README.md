@@ -61,7 +61,7 @@ npm run dev:server
 
 ## Routes
 |route|HTTP Method|params|description
-|:---|:---:|:---:|:---:|:---:|:---:
+|:---|:---:|:---:|:---:
 |`/prompts`|GET| - |Return available prompts.
 |`/upload`|POST|Multipart payload with a `file` field with a `mp3` file.|Upload `mp3` file.
 |`/videos/:id/transcription`|POST|`id` query parameter and body with a `prompt` of keywords|Request video (`mp3` file) transcription.
