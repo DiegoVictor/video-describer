@@ -3,7 +3,7 @@ import { fastifyCors } from '@fastify/cors';
 import { prompts } from './routes/prompts';
 import { uploads } from './routes/uploads';
 import { transcriptions } from './routes/transcriptions';
-import { env } from './env';
+import { env } from '../../env';
 
 const app = fastify();
 
