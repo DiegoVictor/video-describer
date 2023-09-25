@@ -2,7 +2,8 @@
   "name": "video-describer-ai",
   "version": "1.0.0",
   "scripts": {
-    "dev:server": "tsx watch src/server.ts"
+    "dev:server": "tsx watch src/infra/http/server.ts",
+    "test": "jest --runInBand"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
