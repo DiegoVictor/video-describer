@@ -1,6 +1,8 @@
 # Video Describer
 [![typescript](https://img.shields.io/badge/typescript-5.2.2-3178c6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![eslint](https://img.shields.io/badge/eslint-8.49.0-4b32c3?style=flat-square&logo=eslint)](https://eslint.org/)
+[![eslint](https://img.shields.io/badge/eslint-8.50.0-4b32c3?style=flat-square&logo=eslint)](https://eslint.org/)
+[![jest](https://img.shields.io/badge/jest-29.7.0-brightgreen?style=flat-square&logo=jest)](https://jestjs.io/)
+[![coverage](https://img.shields.io/codecov/c/gh/DiegoVictor/video-describer?logo=codecov&style=flat-square)](https://codecov.io/gh/DiegoVictor/video-describer)
 [![MIT License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://raw.githubusercontent.com/DiegoVictor/video-describer/main/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)<br>
 [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Video%20Describer&uri=https%3A%2F%2Fraw.githubusercontent.com%2FDiegoVictor%2Fvideo-describer%2Fmain%2FInsomnia_2023-09-14.json)
