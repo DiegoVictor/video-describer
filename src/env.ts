@@ -12,8 +12,7 @@ const schema = z.object({
     .default(3333),
   NODE_ENV: z
     .enum(['dev', 'test'], {
-      invalid_type_error:
-        'NODE_ENV must one of the following: development or test',
+      invalid_type_error: 'NODE_ENV must one of the following: dev or test',
       required_error: 'Missing NODE_ENV in environment variables',
     })
     .default('dev'),
