@@ -2,9 +2,9 @@ import { OpenAI } from 'openai';
 import { Uploadable } from 'openai/uploads';
 import { OpenAIStream } from 'ai';
 import { env } from '../../env';
-import { IAiService } from '../../contracts/ai';
+import { IArtificialIntelligenceService } from '../../contracts/artificial-intelligence';
 
-export class OpenAiService implements IAiService {
+export class OpenAiService implements IArtificialIntelligenceService {
   private openai: OpenAI;
 
   constructor() {

@@ -1,5 +1,5 @@
 import { IVideosRepository } from '../contracts/videos';
-import { IAiService } from '../contracts/ai';
+import { IArtificialIntelligenceService } from '../contracts/artificial-intelligence';
 
 interface IRequest {
   id: string;
@@ -10,7 +10,7 @@ interface IRequest {
 export class DescribeVideoUseCase {
   constructor(
     private videosRepository: IVideosRepository,
-    private aiService: IAiService
+    private artificialIntelligenceService: IArtificialIntelligenceService
   ) {}
 
   public async execute({ id, prompt, temperature }: IRequest) {
@@ -26,6 +26,9 @@ export class DescribeVideoUseCase {
     }
 
     const message = prompt.replace('{transcription}', transcription);
-    return this.aiService.createChatCompletion(temperature, message);
+    return this.artificialIntelligenceService.createChatCompletion(
+        temperature,
+        message
+      );
   }
 }

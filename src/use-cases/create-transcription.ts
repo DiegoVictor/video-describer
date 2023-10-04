@@ -1,6 +1,6 @@
 import { createReadStream } from 'node:fs';
 import { IVideosRepository } from '../contracts/videos';
-import { IAiService } from '../contracts/ai';
+import { IArtificialIntelligenceService } from '../contracts/artificial-intelligence';
 
 interface IRequest {
   id: string;
@@ -10,7 +10,7 @@ interface IRequest {
 export class CreateTranscriptionUseCase {
   constructor(
     private videosRepository: IVideosRepository,
-    private aiService: IAiService
+    private artificialIntelligenceService: IArtificialIntelligenceService
   ) {}
 
   public async execute({ id, prompt }: IRequest) {
@@ -23,10 +23,11 @@ export class CreateTranscriptionUseCase {
     const { path } = video;
     const stream = createReadStream(path);
 
-    const response = await this.aiService.createAudioTranscription(
-      stream,
-      prompt
-    );
+    const response =
+      await this.artificialIntelligenceService.createAudioTranscription(
+        stream,
+        prompt
+      );
 
     const { transcription } = await this.videosRepository.updateById(id, {
       transcription: response.text,
