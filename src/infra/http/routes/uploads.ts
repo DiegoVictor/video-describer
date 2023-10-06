@@ -1,6 +1,7 @@
 import { FastifyInstance } from 'fastify';
 import { fastifyMultipart } from '@fastify/multipart';
 import { makeUploadUseCase } from '../../../use-cases/factory/make-upload-use-case';
+import { HttpResponse } from '../../helpers/http-response';
 
 export async function uploads(app: FastifyInstance) {
   app.register(fastifyMultipart, {
@@ -9,12 +10,12 @@ export async function uploads(app: FastifyInstance) {
     },
   });
 
-  app.post('/upload', async request => {
+  app.post('/upload', async (request, reply) => {
     const data = await request.file();
 
     const uploadUseCase = makeUploadUseCase();
-    const video = await uploadUseCase.execute({ data });
+    const result = await uploadUseCase.execute({ data });
 
-    return video;
+    return HttpResponse.parse(result, reply);
   });
 }

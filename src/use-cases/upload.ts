@@ -4,7 +4,9 @@ import { randomUUID } from 'node:crypto';
 import { promisify } from 'node:util';
 import { pipeline } from 'node:stream';
 import { createWriteStream } from 'node:fs';
-import { ALLOWED_FILES, IVideosRepository } from '../contracts/videos';
+import { ALLOWED_FILES, IVideo, IVideosRepository } from '../contracts/videos';
+import { IEither, failure, success } from '../contracts/either';
+import { IFailure } from '../contracts/failure';
 
 interface IRequest {
   data: MultipartFile | undefined;
@@ -13,16 +15,22 @@ interface IRequest {
 export class UploadUseCase {
   constructor(private videoRepository: IVideosRepository) {}
 
-  public async execute({ data }: IRequest) {
+  public async execute({ data }: IRequest): Promise<IEither<IVideo, IFailure>> {
     if (!data) {
-      throw new Error('Missing file input');
+      return failure({
+        message: 'Missing file input',
+        code: 400,
+      });
     }
 
     const ext = path.extname(data.filename);
     if (!ALLOWED_FILES.includes(ext)) {
-      throw new Error(
-        `Invalid file type. Allowed types: ${ALLOWED_FILES.join(', ')}.`
-      );
+      return failure({
+        message: `Invalid file type. Allowed types: ${ALLOWED_FILES.join(
+          ', '
+        )}.`,
+        code: 400,
+      });
     }
 
     const originalName = path.basename(data.filename, ext);
@@ -44,6 +52,6 @@ export class UploadUseCase {
       path: uploadDestination,
     });
 
-    return video;
+    return success(video);
   }
 }
