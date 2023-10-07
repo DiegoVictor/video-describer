@@ -13,6 +13,6 @@ describe('GetPromptsUseCase', () => {
     const response = await getPromptsUseCase.execute();
 
     expect(repository.getAll).toHaveBeenCalled();
-    expect(response).toStrictEqual(prompts);
+    expect(response.value).toStrictEqual(prompts);
   });
 });
