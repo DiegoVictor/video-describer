@@ -56,7 +56,7 @@ describe('CreateTranscriptionUseCase', () => {
       transcription: result.text,
     });
 
-    expect(response).toStrictEqual(result.text);
+    expect(response.value).toStrictEqual(result.text);
   });
 
   it('should not be able to create a transcription if the video does not exists', async () => {
@@ -79,13 +79,15 @@ describe('CreateTranscriptionUseCase', () => {
     );
 
     const prompt = faker.lorem.words(5);
-    await expect(async () =>
-      createTranscriptionUseCase.execute({
-        id,
-        prompt,
-      })
-    ).rejects.toThrow();
+    const response = await createTranscriptionUseCase.execute({
+      id,
+      prompt,
+    });
 
     expect(repository.findOneById).toHaveBeenCalledWith(id);
+    expect(response.value).toStrictEqual({
+      code: 404,
+      message: 'Video Not Found',
+    });
   });
 });

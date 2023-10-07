@@ -36,7 +36,7 @@ describe('DescribeVideoUseCase', () => {
       temperature,
       prompt
     );
-    expect(response).toStrictEqual(stream);
+    expect(response.value).toStrictEqual(stream);
   });
 
   it('should not be able to describe a video that does not have a transcription', async () => {
@@ -62,15 +62,18 @@ describe('DescribeVideoUseCase', () => {
 
     const prompt = faker.lorem.words(10);
     const temperature = 0.5;
-    await expect(async () =>
-      describeVideoUseCase.execute({
-        id: video.id,
-        prompt,
-        temperature,
-      })
-    ).rejects.toThrow();
+
+    const response = await describeVideoUseCase.execute({
+      id: video.id,
+      prompt,
+      temperature,
+    });
 
     expect(repository.findOneById).toHaveBeenCalledWith(video.id);
+    expect(response.value).toStrictEqual({
+      code: 400,
+      message: 'Transcription not generated yet',
+    });
   });
 
   it('should not be able to describe a video that not exists', async () => {
@@ -91,14 +94,17 @@ describe('DescribeVideoUseCase', () => {
 
     const prompt = faker.lorem.words(10);
     const temperature = 0.5;
-    await expect(async () =>
-      describeVideoUseCase.execute({
-        id: video.id,
-        prompt,
-        temperature,
-      })
-    ).rejects.toThrow();
+
+    const response = await describeVideoUseCase.execute({
+      id: video.id,
+      prompt,
+      temperature,
+    });
 
     expect(repository.findOneById).toHaveBeenCalledWith(video.id);
+    expect(response.value).toStrictEqual({
+      code: 404,
+      message: 'Video not found',
+    });
   });
 });
