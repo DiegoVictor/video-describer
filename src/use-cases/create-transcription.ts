@@ -1,6 +1,8 @@
 import { createReadStream } from 'node:fs';
 import { IVideosRepository } from '../contracts/videos';
 import { IArtificialIntelligenceService } from '../contracts/artificial-intelligence';
+import { IEither, failure, success } from '../contracts/either';
+import { IFailure } from '../contracts/failure';
 
 interface IRequest {
   id: string;
@@ -13,11 +15,17 @@ export class CreateTranscriptionUseCase {
     private artificialIntelligenceService: IArtificialIntelligenceService
   ) {}
 
-  public async execute({ id, prompt }: IRequest) {
+  public async execute({
+    id,
+    prompt,
+  }: IRequest): Promise<IEither<string | null | undefined, IFailure>> {
     const video = await this.videosRepository.findOneById(id);
 
     if (!video) {
-      throw new Error('Video Not Found');
+      return failure({
+        message: 'Video Not Found',
+        code: 404,
+      });
     }
 
     const { path } = video;
@@ -33,6 +41,6 @@ export class CreateTranscriptionUseCase {
       transcription: response.text,
     });
 
-    return transcription;
+    return success(transcription);
   }
 }

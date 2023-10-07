@@ -1,5 +1,7 @@
 import { IVideosRepository } from '../contracts/videos';
 import { IArtificialIntelligenceService } from '../contracts/artificial-intelligence';
+import { IEither, failure, success } from '../contracts/either';
+import { IFailure } from '../contracts/failure';
 
 interface IRequest {
   id: string;
@@ -13,22 +15,35 @@ export class DescribeVideoUseCase {
     private artificialIntelligenceService: IArtificialIntelligenceService
   ) {}
 
-  public async execute({ id, prompt, temperature }: IRequest) {
+  public async execute({
+    id,
+    prompt,
+    temperature,
+  }: IRequest): Promise<IEither<ReadableStream, IFailure>> {
     const video = await this.videosRepository.findOneById(id);
 
     if (!video) {
-      throw new Error('Video Not Found');
+      return failure({
+        code: 404,
+        message: 'Video not found',
+      });
     }
 
     const { transcription } = video;
     if (!transcription) {
-      throw new Error('Transcription not generated yet');
+      return failure({
+        message: 'Transcription not generated yet',
+        code: 400,
+      });
     }
 
     const message = prompt.replace('{transcription}', transcription);
-    return this.artificialIntelligenceService.createChatCompletion(
+    const stream =
+      await this.artificialIntelligenceService.createChatCompletion(
         temperature,
         message
       );
+
+    return success(stream);
   }
 }
