@@ -1,7 +1,7 @@
 # Video Describer
 [![AppVeyor](https://img.shields.io/appveyor/build/diegovictor/video-describer?logo=appveyor&style=flat-square)](https://ci.appveyor.com/project/DiegoVictor/video-describer)
-[![typescript](https://img.shields.io/badge/typescript-5.2.2-3178c6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![eslint](https://img.shields.io/badge/eslint-8.50.0-4b32c3?style=flat-square&logo=eslint)](https://eslint.org/)
+[![typescript](https://img.shields.io/badge/typescript-5.4.5-3178c6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![eslint](https://img.shields.io/badge/eslint-8.57.0-4b32c3?style=flat-square&logo=eslint)](https://eslint.org/)
 [![jest](https://img.shields.io/badge/jest-29.7.0-brightgreen?style=flat-square&logo=jest)](https://jestjs.io/)
 [![coverage](https://img.shields.io/codecov/c/gh/DiegoVictor/video-describer?logo=codecov&style=flat-square)](https://codecov.io/gh/DiegoVictor/video-describer)
 [![MIT License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://raw.githubusercontent.com/DiegoVictor/video-describer/main/LICENSE)
