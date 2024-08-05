@@ -1,6 +1,6 @@
 # Video Describer
 [![AppVeyor](https://img.shields.io/appveyor/build/diegovictor/video-describer?logo=appveyor&style=flat-square)](https://ci.appveyor.com/project/DiegoVictor/video-describer)
-[![typescript](https://img.shields.io/badge/typescript-5.4.5-3178c6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![prisma](https://img.shields.io/static/v1?label=prisma&message=5.17.0&color=2d3748&logo=prisma&style=flat-square)](https://www.prisma.io)
 [![typescript](https://img.shields.io/badge/typescript-5.5.4-3178c6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![eslint](https://img.shields.io/badge/eslint-8.57.0-4b32c3?style=flat-square&logo=eslint)](https://eslint.org/)
 [![jest](https://img.shields.io/badge/jest-29.7.0-brightgreen?style=flat-square&logo=jest)](https://jestjs.io/)
