@@ -7,7 +7,6 @@
 [![coverage](https://img.shields.io/codecov/c/gh/DiegoVictor/video-describer?logo=codecov&style=flat-square)](https://codecov.io/gh/DiegoVictor/video-describer)
 [![MIT License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://raw.githubusercontent.com/DiegoVictor/video-describer/main/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)<br>
-[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Video%20Describer&uri=https%3A%2F%2Fraw.githubusercontent.com%2FDiegoVictor%2Fvideo-describer%2Fmain%2FInsomnia_2023-09-14.json)
 
 Allow users to upload a `.mp3` file and get a transcription of the audio and later to send a prompt requesting to Open AI API to generate a text following the prompt rules.
 
