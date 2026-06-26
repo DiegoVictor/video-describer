@@ -1,9 +1,9 @@
 # Video Describer
 [![AppVeyor](https://img.shields.io/appveyor/build/diegovictor/video-describer?logo=appveyor&style=flat-square)](https://ci.appveyor.com/project/DiegoVictor/video-describer)
-[![prisma](https://img.shields.io/static/v1?label=prisma&message=5.17.0&color=2d3748&logo=prisma&style=flat-square)](https://www.prisma.io)
-[![typescript](https://img.shields.io/badge/typescript-5.5.4-3178c6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![eslint](https://img.shields.io/badge/eslint-8.57.0-4b32c3?style=flat-square&logo=eslint)](https://eslint.org/)
-[![jest](https://img.shields.io/badge/jest-29.7.0-brightgreen?style=flat-square&logo=jest)](https://jestjs.io/)
+[![prisma](https://img.shields.io/static/v1?label=prisma&message=7.8.0&color=2d3748&logo=prisma&style=flat-square)](https://www.prisma.io)
+[![typescript](https://img.shields.io/badge/typescript-6.0.3-3178c6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![eslint](https://img.shields.io/badge/eslint-10.5.0-4b32c3?style=flat-square&logo=eslint)](https://eslint.org/)
+[![jest](https://img.shields.io/badge/jest-30.4.2-brightgreen?style=flat-square&logo=jest)](https://jestjs.io/)
 [![coverage](https://img.shields.io/codecov/c/gh/DiegoVictor/video-describer?logo=codecov&style=flat-square)](https://codecov.io/gh/DiegoVictor/video-describer)
 [![MIT License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://raw.githubusercontent.com/DiegoVictor/video-describer/main/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)<br>
